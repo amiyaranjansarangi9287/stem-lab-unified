@@ -15,13 +15,16 @@
       --math: #3157d5;
       --physics: #f59e0b;
       --chem: #0f766e;
-      --violet: #7c3aed;
+      --biology: #16a34a;
+      --life: #0284c7;
       --red: #dc2626;
       --soft-blue: #eaf0ff;
       --soft-amber: #fff5db;
       --soft-green: #e8f8f3;
       --soft-violet: #f2edff;
       --soft-red: #fff1f1;
+      --soft-biology: #dcfce7;
+      --soft-life: #e0f2fe;
       --shadow: 0 18px 45px rgba(30, 41, 59, .10);
       --radius-xl: 30px;
       --radius-lg: 22px;
@@ -180,7 +183,7 @@
     .section-head h2 { margin: 0; font-size: clamp(26px, 3vw, 42px); line-height: 1.06; letter-spacing: -.045em; }
     .section-head p { margin: 8px 0 0; color: var(--muted); line-height: 1.6; max-width: 830px; }
 
-    .subject-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+    .subject-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
     .subject-card {
       background: #fff;
       border: 1px solid var(--line);
@@ -207,6 +210,8 @@
     .subject-card.math:after { background: var(--math); }
     .subject-card.physics:after { background: var(--physics); }
     .subject-card.chemistry:after { background: var(--chem); }
+    .subject-card.biology:after { background: var(--biology); }
+    .subject-card.life:after { background: var(--life); }
     .subject-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; position: relative; z-index: 1; }
     .subject-mark {
       width: 56px;
@@ -220,6 +225,8 @@
     .math .subject-mark { background: var(--soft-blue); color: var(--math); }
     .physics .subject-mark { background: var(--soft-amber); color: #9a5b00; }
     .chemistry .subject-mark { background: var(--soft-green); color: var(--chem); }
+    .biology .subject-mark { background: var(--soft-biology); color: var(--biology); }
+    .life .subject-mark { background: var(--soft-life); color: var(--life); }
     .subject-card h3 { margin: 0; font-size: 28px; letter-spacing: -.04em; }
     .subject-card p { margin: 0; color: var(--muted); line-height: 1.58; }
     .subject-list { margin: 0; padding-left: 18px; color: #475467; line-height: 1.65; font-size: 14px; }
@@ -238,6 +245,8 @@
     .subject-card.math .subject-link.primary { background: var(--math); }
     .subject-card.physics .subject-link.primary { background: #b66b00; }
     .subject-card.chemistry .subject-link.primary { background: var(--chem); }
+    .subject-card.biology .subject-link.primary { background: var(--biology); }
+    .subject-card.life .subject-link.primary { background: var(--life); }
 
     .two-col { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 16px; }
     .panel { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 18px; }
@@ -321,7 +330,7 @@
 
     @media (max-width: 1080px) {
       .hero, .two-col, .detail-grid, .setup-grid { grid-template-columns: 1fr; }
-      .subject-grid, .status-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .status-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .quick-nav { grid-template-columns: repeat(3, minmax(0,1fr)); }
       .route { grid-template-columns: repeat(3, minmax(0,1fr)); }
     }
@@ -441,6 +450,46 @@
             <a class="subject-link ghost" href="#identity" data-track-detail="chemistry">View identity</a>
           </div>
         </article>
+
+        <article class="subject-card biology">
+          <div class="subject-top">
+            <div>
+              <div class="eyebrow"><span class="pill green">Biology Lab</span></div>
+              <h3>Biology Concepts Lab</h3>
+            </div>
+            <div class="subject-mark">🌿</div>
+          </div>
+          <p>Class 1–10 living-systems learning with observation, field notebook, cells, body systems, microbes, ecosystems, heredity, and evolution.</p>
+          <ul class="subject-list">
+            <li>Cells, body systems, and microbes</li>
+            <li>Ecosystems, heredity, and evolution</li>
+            <li>Diagram practice and board-answer coaching</li>
+          </ul>
+          <div class="subject-actions">
+            <a class="subject-link primary" data-track-open="biology" href="https://amiyaranjansarangi9287.github.io/biology-concepts-lab/">Open Biology</a>
+            <a class="subject-link ghost" href="#identity" data-track-detail="biology">View identity</a>
+          </div>
+        </article>
+
+        <article class="subject-card life">
+          <div class="subject-top">
+            <div>
+              <div class="eyebrow"><span class="pill" style="color: #075985; background: var(--soft-life); border-color: #bae6fd;">Life Lab</span></div>
+              <h3>Life Concepts Lab</h3>
+            </div>
+            <div class="subject-mark">🌍</div>
+          </div>
+          <p>Apply Math, Physics, Chemistry, and Biology to 60 daily-life scenarios. Learn how STEM concepts power the real world around us.</p>
+          <ul class="subject-list">
+            <li>Daily-life scenarios and real-world science</li>
+            <li>Cross-disciplinary STEM application</li>
+            <li>Interactive simulations of everyday systems</li>
+          </ul>
+          <div class="subject-actions">
+            <a class="subject-link primary" data-track-open="life" href="https://amiyaranjansarangi9287.github.io/life-concepts-lab/">Open Life Lab</a>
+            <a class="subject-link ghost" href="#identity" data-track-detail="life">View identity</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -556,6 +605,26 @@
         learnerFlow: ['Observe safely', 'See particle view', 'Name the concept', 'Read the rule or reaction', 'Connect real life', 'Try and test'],
         misconception: 'Do not show wrong particle or molecule visuals. In Chemistry, inaccurate visuals can create strong misconceptions.',
         link: 'https://amiyaranjansarangi9287.github.io/chemistry-concepts-lab/'
+      },
+      biology: {
+        name: 'Biology Concepts Lab',
+        color: 'var(--biology)',
+        icon: '🌿',
+        identity: 'Biology explores living systems, from microscopic cells to global ecosystems, heredity, and evolution.',
+        visualSystem: 'cell diagrams, ecosystem maps, anatomy models, heredity trees',
+        learnerFlow: ['Observe safely', 'Identify structures', 'Trace functions', 'Connect to system', 'Apply to life', 'Test'],
+        misconception: 'Do not isolate parts from the whole. Biology is about systems and how they interact.',
+        link: 'https://amiyaranjansarangi9287.github.io/biology-concepts-lab/'
+      },
+      life: {
+        name: 'Life Concepts Lab',
+        color: 'var(--life)',
+        icon: '🌍',
+        identity: 'Life Concepts applies theoretical STEM knowledge to practical, everyday scenarios and systems.',
+        visualSystem: 'real-world scenarios, cross-disciplinary maps, interactive simulations',
+        learnerFlow: ['Encounter scenario', 'Identify STEM concept', 'Apply theory', 'Solve practical problem', 'Reflect', 'Test'],
+        misconception: 'Do not treat this as just another subject; treat it as the real-world application of all other subjects combined.',
+        link: 'https://amiyaranjansarangi9287.github.io/life-concepts-lab/'
       }
     };
 
@@ -598,6 +667,8 @@
           <a class="action-btn secondary" href="${subjectConfig.math.link}">Math for Class ${state.selectedClass}</a>
           <a class="action-btn secondary" href="${subjectConfig.physics.link}">Physics for Class ${state.selectedClass}</a>
           <a class="action-btn secondary" href="${subjectConfig.chemistry.link}">Chemistry for Class ${state.selectedClass}</a>
+          <a class="action-btn secondary" href="${subjectConfig.biology.link}">Biology for Class ${state.selectedClass}</a>
+          <a class="action-btn secondary" href="${subjectConfig.life.link}">Life for Class ${state.selectedClass}</a>
         </div>
       `;
     }
@@ -636,7 +707,9 @@
       const map = {
         math: 'Keep the symbol, visual, and reasoning connected before moving to speed.',
         physics: 'Ask what changes, what causes the change, and what the diagram represents.',
-        chemistry: 'Separate observation from particle-level explanation and keep safety boundaries clear.'
+        chemistry: 'Separate observation from particle-level explanation and keep safety boundaries clear.',
+        biology: 'Focus on systems and relationships rather than isolated facts.',
+        life: 'Always start with the real-world scenario before jumping to the theory.'
       };
       return map[subjectKey] || 'Use one visible action and one reasoning prompt.';
     }
